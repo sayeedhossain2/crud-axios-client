@@ -27,6 +27,7 @@ const EmployerModal = ({
       })
       .then((res) => console.log(res))
       .then((err) => console.log(err));
+    Swal.fire("Good job!", "User Updated Successfully!", "success");
   };
 
   return (
