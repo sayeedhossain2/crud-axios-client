@@ -2,18 +2,38 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import EmployerModal from "../EmployerModal/EmployerModal";
 import EmployerDetails from "./EmployerDetails";
+// import spinner from "../../../public/Spinner.gif";
+import { Puff } from "react-loader-spinner";
 
 const EmployerList = () => {
   const [employInfo, setEmployInfo] = useState([]);
   const [employerInfo, SetEmployerInfo] = useState(null);
   const [isChange, setIsChange] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios.get("http://localhost:5000/employerInfo").then((data) => {
       const information = data.data;
       setEmployInfo(information);
+      setIsLoading(false);
     });
   }, [employInfo, isChange]);
+
+  if (isLoading) {
+    return (
+      <Puff
+        height="80"
+        width="80"
+        radius={1}
+        color="#4fa94d"
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    );
+  }
 
   return (
     <div>
@@ -22,12 +42,12 @@ const EmployerList = () => {
         <table className="table w-full">
           <thead>
             <tr>
-              <th></th>
-              <th>First Name</th>
+              <th>Full Name</th>
 
               <th>All Information</th>
-              <th></th>
-              <th></th>
+
+              <th>Lock</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

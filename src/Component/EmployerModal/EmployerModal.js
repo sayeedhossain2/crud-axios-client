@@ -18,32 +18,6 @@ const EmployerModal = ({
     const email = form.email.value;
     const phonenumber = form.phonenumber.value;
 
-    // console.log(name, userid, password);
-
-    // const alldata = {
-    //   firstname,
-    //   lastname,
-    //   email,
-    //   phonenumber,
-    // };
-    // console.log(alldata);
-
-    // fetch(`http://localhost:5000/employUpdate/${_id}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(alldata),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.modifiedCount > 0) {
-    //       //   setIsChange(!isChange);
-    //       Swal.fire("Good job!", "Updated Successfully!", "success");
-    //     }
-    //   });
-
     axios
       .put(`http://localhost:5000/employUpdate/${_id}`, {
         firstname: firstname,

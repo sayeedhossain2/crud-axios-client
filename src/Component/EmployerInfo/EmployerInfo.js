@@ -11,27 +11,6 @@ const EmployerInfo = () => {
     const email = form.email.value;
     const phonenumber = form.phonenumber.value;
 
-    // console.log(firstname, lastname, email, phonenumber);
-
-    // const information = {
-    //   firstname,
-    //   lastname,
-    //   email,
-    //   phonenumber,
-    // };
-    // console.log(information);
-
-    // fetch("http://localhost:5000/employerInfo", {
-    //   method: "POST",
-    //   headers: {
-    //     "content-type": "application/json",
-    //   },
-    //   body: JSON.stringify(information),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => console.log(data))
-    //   .catch((er) => console.error(er));
-
     axios({
       method: "post",
       url: "http://localhost:5000/employerInfo",
